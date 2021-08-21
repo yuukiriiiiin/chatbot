@@ -18,6 +18,9 @@
 # storybook
 /.storybook
 
+# vscode
+/.vscode
+
 # misc
 .DS_Store
 *.pem
