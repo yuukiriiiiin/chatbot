@@ -1,0 +1,25 @@
+.root {
+  position: relative;
+  &__labelArea {
+    position: absolute;
+    top: 2px;
+    left: 10px;
+  }
+  &__label {
+    font-size: 11px;
+    color: #a2a2a2;
+  }
+  &__input {
+    width: 100%;
+    padding: 20px 10px 10px;
+    border: 1px solid #a2a2a2;
+    border-radius: 3px;
+    outline: none;
+    &[data-is-required] {
+      background: #ffffe5;
+    }
+    &[data-is-error] {
+      background: #fee6e6;
+    }
+  }
+}
