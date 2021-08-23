@@ -2,7 +2,7 @@ import { Button } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
-  title: 'Example/Button',
+  title: 'atoms/Button',
   component: Button,
 };
 
