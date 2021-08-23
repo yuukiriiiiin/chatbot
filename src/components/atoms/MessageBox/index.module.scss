@@ -1,0 +1,13 @@
+.root {
+  padding: 20px;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 6px;
+
+  &[data-theme='bot'] {
+    background: #f2f2f2;
+  }
+  &[data-theme='reply'] {
+    background: #fff7cc;
+  }
+}
