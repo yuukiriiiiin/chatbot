@@ -46,6 +46,7 @@ export const TextField: React.VFC<Props> = ({
         placeholder={placeholder}
         hasError={hasError}
         onChange={onChange}
+        required={required}
       />
     </div>
   );
