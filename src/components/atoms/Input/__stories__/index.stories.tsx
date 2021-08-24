@@ -15,7 +15,6 @@ Default.args = {
   type: 'text',
   value: 'さんぷるぅ',
   name: 'name',
-  label: 'お名前',
   placeholder: 'お名前を入力してください',
   onChange: () => {},
 };
@@ -23,9 +22,8 @@ Default.args = {
 export const Required = Template.bind({});
 Required.args = {
   type: 'text',
-  value: 'さんぷるぅ',
+  value: '',
   name: 'name',
-  label: 'お名前',
   placeholder: 'お名前を入力してください',
   required: true,
   onChange: () => {},
@@ -36,7 +34,6 @@ HasError.args = {
   type: 'text',
   value: '',
   name: 'name',
-  label: 'お名前',
   placeholder: 'お名前を入力してください',
   hasError: true,
   onChange: () => {},
