@@ -21,6 +21,7 @@ const messages = [
     value: '桃子',
     name: 'name',
     label: 'お名前',
+    onclick: () => {},
   },
   {
     messageType: 'bot',
@@ -32,6 +33,7 @@ const messages = [
     value: 'y@gmail.com',
     name: 'email',
     label: 'メールアドレス',
+    onclick: () => {},
   },
 ];
 
