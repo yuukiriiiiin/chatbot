@@ -12,7 +12,7 @@ type Props = {
   required?: boolean;
   label: string;
   hasError: boolean;
-  errorMessage: string;
+  errorMessage?: string;
   edited: boolean;
 };
 
@@ -39,7 +39,7 @@ export const TextFieldRow: React.VFC<Props> = ({
           placeholder={placeholder}
           required={required}
           hasError={hasError}
-          errorMessage={errorMessage}
+          errorMessage={errorMessage ?? ''}
           onChange={onChange}
         />
       </div>
