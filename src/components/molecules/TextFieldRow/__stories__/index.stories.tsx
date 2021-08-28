@@ -19,7 +19,6 @@ Default.args = {
   placeholder: 'お名前を入力してください。',
   required: true,
   hasError: false,
-  progress: 1,
 };
 
 export const HasError = Template.bind({});
@@ -32,5 +31,4 @@ HasError.args = {
   required: true,
   hasError: true,
   errorMessage: 'この項目は必須です。',
-  progress: 1,
 };
