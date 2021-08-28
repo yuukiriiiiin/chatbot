@@ -16,7 +16,7 @@ type ReplyMessage = {
   onClick: () => void;
 };
 
-type Message = BotMessage | ReplyMessage;
+export type Message = BotMessage | ReplyMessage;
 
 type Props = {
   messages: Message[];
