@@ -3,7 +3,7 @@ import { Button } from '../../atoms/Button';
 import { TextField } from '../TextField';
 import styles from './index.module.scss';
 
-type Props = {
+export type Props = {
   type: string;
   name: string;
   value: string;
