@@ -4,8 +4,6 @@ import { createSelector } from 'reselect';
 import { RootState } from '../../configureStore';
 import { submitName } from '../inquiry';
 
-const actionCreator = actionCreatorFactory('inquiry');
-
 export type Tuple = 'name' | 'email' | 'tel' | 'message';
 
 type ProgressState = {
