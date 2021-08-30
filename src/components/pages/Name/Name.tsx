@@ -77,7 +77,21 @@ export const Name: React.VFC<Props> = ({
               hasError={validationErrors.email.error}
               edited={edited.email}
               errorMessage={validationErrors.email.message}
-              placeholder={'お名前を入力してください'}
+              placeholder={'メールアドレスを入力してください'}
+              onClick={onClick}
+            />
+          )}
+          {current === 'tel' && (
+            <TextFieldRow
+              type={'tel'}
+              label={'電話番号'}
+              value={form.tel}
+              onChange={onChange}
+              name={'tel'}
+              hasError={validationErrors.tel.error}
+              edited={edited.tel}
+              errorMessage={validationErrors.tel.message}
+              placeholder={'電話番号を入力してください'}
               onClick={onClick}
             />
           )}

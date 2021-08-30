@@ -7,13 +7,15 @@ import { RootState } from '../../configureStore';
 const actionCreator = actionCreatorFactory('inquiry');
 
 type ChangePayload = {
+  name: string;
   value: string;
 };
 
-export const changeName = actionCreator<ChangePayload>('change name');
-export const changeEmail = actionCreator<ChangePayload>('change email');
-export const changeTel = actionCreator<ChangePayload>('change tel');
-export const submitName = actionCreator('submit name');
+export const changeValue = actionCreator<ChangePayload>('change value');
+// export const changeName = actionCreator<ChangePayload>('change name');
+// export const changeEmail = actionCreator<ChangePayload>('change email');
+// export const changeTel = actionCreator<ChangePayload>('change tel');
+export const next = actionCreator('next question');
 
 const INITIAL_STATE = {
   form: {
@@ -77,12 +79,40 @@ const validator = (form: typeof INITIAL_STATE.form) => ({
 });
 
 export const reducer = reducerWithInitialState(INITIAL_STATE) //
-  .case(changeName, (state, payload) => {
-    const form = { ...state.form, name: payload.value };
+  .case(changeValue, (state, payload) => {
+    const form = { ...state.form, [payload.name]: payload.value };
     const validationErrors = validator(form);
-    const edited = { ...state.edited, name: true };
+    const edited = { ...state.edited, [payload.name]: true };
     return { ...state, form, edited, validationErrors };
-  });
+  })
+  .case(next, (state, _payload) => ({
+    ...state,
+    validationErrors: {
+      ...state.validationErrors,
+      name: {
+        ...state.validationErrors.name,
+        error: false,
+      },
+      email: {
+        ...state.validationErrors.email,
+        error: false,
+      },
+      tel: {
+        ...state.validationErrors.tel,
+        error: false,
+      },
+      message: {
+        ...state.validationErrors.message,
+        error: false,
+      },
+    },
+  }));
+// .case(changeName, (state, payload) => {
+//   const form = { ...state.form, name: payload.value };
+//   const validationErrors = validator(form);
+//   const edited = { ...state.edited, name: true };
+//   return { ...state, form, edited, validationErrors };
+// });
 // .case(changeEmail, (state, payload) => {
 //   const form = { ...state.form, email: payload.value };
 //   const validationErrors = validator(form);

@@ -1,11 +1,7 @@
 import React from 'react';
 import react, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  changeName,
-  selectInquiry,
-  submitName,
-} from '../../../redux/ui/inquiry';
+import { changeValue, selectInquiry, next } from '../../../redux/ui/inquiry';
 import { selectProgressState } from '../../../redux/ui/progressState';
 import { Name as Presentation } from './Name';
 
@@ -16,14 +12,14 @@ export const Container = () => {
   const { progress, current } = useSelector(selectProgressState);
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      dispatch(changeName({ value: e.target.value }));
+      dispatch(changeValue({ name: e.target.name, value: e.target.value }));
     },
     [dispatch]
   );
   const handleNext = useCallback(
     (e: React.ChangeEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      dispatch(submitName());
+      dispatch(next());
     },
     [dispatch]
   );
