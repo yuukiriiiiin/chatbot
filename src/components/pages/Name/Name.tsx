@@ -33,6 +33,7 @@ type Props = {
   progress: number;
   current: Tuple;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick: (e: any) => void;
 } & FormProps;
 
 export const Name: React.VFC<Props> = ({
@@ -40,6 +41,7 @@ export const Name: React.VFC<Props> = ({
   progress,
   current,
   onChange,
+  onClick,
   form,
   edited,
   validationErrors,
@@ -61,6 +63,22 @@ export const Name: React.VFC<Props> = ({
               edited={edited.name}
               errorMessage={validationErrors.name.message}
               placeholder={'お名前を入力してください'}
+              onClick={onClick}
+            />
+          )}
+          {current === 'email' && (
+            <TextFieldRow
+              type={'email'}
+              label={'メールアドレス'}
+              required
+              value={form.email}
+              onChange={onChange}
+              name={'email'}
+              hasError={validationErrors.email.error}
+              edited={edited.email}
+              errorMessage={validationErrors.email.message}
+              placeholder={'お名前を入力してください'}
+              onClick={onClick}
             />
           )}
         </FormArea>

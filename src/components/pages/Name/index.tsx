@@ -1,3 +1,4 @@
+import React from 'react';
 import react, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -19,9 +20,13 @@ export const Container = () => {
     },
     [dispatch]
   );
-  const handleNext = useCallback(() => {
-    dispatch(submitName());
-  }, []);
+  const handleNext = useCallback(
+    (e: React.ChangeEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      dispatch(submitName());
+    },
+    [dispatch]
+  );
 
   return (
     <Presentation
@@ -31,6 +36,7 @@ export const Container = () => {
       onChange={handleChange}
       progress={progress}
       current={current}
+      onClick={handleNext}
     />
   );
 };

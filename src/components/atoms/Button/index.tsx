@@ -5,6 +5,7 @@ type Props = {
   disabled: boolean;
   type?: 'primary' | 'default';
   fit?: boolean;
+  onClick?: (e: any) => void;
 };
 
 export const Button: React.FC<Props> = ({
@@ -12,6 +13,7 @@ export const Button: React.FC<Props> = ({
   type = 'primary',
   fit,
   children,
+  onClick,
 }) => {
   return (
     <button
@@ -19,7 +21,8 @@ export const Button: React.FC<Props> = ({
       type="button"
       disabled={disabled}
       data-is-fit={fit}
-      data-is-default={type === 'default'}>
+      data-is-default={type === 'default'}
+      onClick={onClick}>
       {children}
     </button>
   );

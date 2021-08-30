@@ -9,6 +9,7 @@ export type Props = {
   value: string;
   placeholder?: string;
   onChange: (e: any) => void;
+  onClick?: (e: any) => void;
   required?: boolean;
   label: string;
   hasError: boolean;
@@ -27,6 +28,7 @@ export const TextFieldRow: React.VFC<Props> = ({
   errorMessage,
   edited,
   onChange,
+  onClick,
 }) => {
   return (
     <div className={styles.root__form}>
@@ -44,7 +46,9 @@ export const TextFieldRow: React.VFC<Props> = ({
         />
       </div>
       <div className={styles.root__button}>
-        <Button disabled={hasError || (required && !edited)}>次へ</Button>
+        <Button onClick={onClick} disabled={hasError || (required && !edited)}>
+          次へ
+        </Button>
       </div>
     </div>
   );
