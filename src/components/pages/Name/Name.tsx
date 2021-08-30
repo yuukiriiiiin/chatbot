@@ -1,4 +1,5 @@
 import react from 'react';
+import { Tuple } from '../../../redux/ui/progressState';
 import { Props as TextFieldProps } from '../../molecules/TextFieldRow';
 import { TextFieldRow } from '../../molecules/TextFieldRow';
 import { FormArea } from '../../organisms/FormArea/FormArea';
@@ -29,13 +30,15 @@ type FormProps = {
 
 type Props = {
   messages?: Message[];
-  progress?: number;
+  progress: number;
+  current: Tuple;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 } & FormProps;
 
 export const Name: React.VFC<Props> = ({
   messages,
   progress,
+  current,
   onChange,
   form,
   edited,
@@ -45,19 +48,21 @@ export const Name: React.VFC<Props> = ({
     <div className={styles.root}>
       <MessageArea messages={[]} />
       <div className={styles.root__form}>
-        <FormArea progress={0}>
-          <TextFieldRow
-            type={'name'}
-            label={'お名前'}
-            required
-            value={form.name}
-            onChange={onChange}
-            name={'name'}
-            hasError={validationErrors.name.error}
-            edited={edited.name}
-            errorMessage={validationErrors.name.message}
-            placeholder={'お名前を入力してください'}
-          />
+        <FormArea progress={progress}>
+          {current === 'name' && (
+            <TextFieldRow
+              type={'name'}
+              label={'お名前'}
+              required
+              value={form.name}
+              onChange={onChange}
+              name={'name'}
+              hasError={validationErrors.name.error}
+              edited={edited.name}
+              errorMessage={validationErrors.name.message}
+              placeholder={'お名前を入力してください'}
+            />
+          )}
         </FormArea>
       </div>
     </div>

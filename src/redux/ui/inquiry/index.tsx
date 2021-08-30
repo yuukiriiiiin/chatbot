@@ -13,6 +13,7 @@ type ChangePayload = {
 export const changeName = actionCreator<ChangePayload>('change name');
 export const changeEmail = actionCreator<ChangePayload>('change email');
 export const changeTel = actionCreator<ChangePayload>('change tel');
+export const submitName = actionCreator('submit name');
 
 const INITIAL_STATE = {
   form: {
