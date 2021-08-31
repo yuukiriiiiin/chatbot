@@ -22,7 +22,7 @@ const INITIAL_STATE: Message[] = [
 
 export const reducer = reducerWithInitialState(INITIAL_STATE) //
   .case(pushMessage, (state, { current, value }) => {
-    interface StringKeyObject {
+    interface MessageTemplate {
       [key: string]: {
         label: string;
         type: string;
@@ -33,7 +33,7 @@ export const reducer = reducerWithInitialState(INITIAL_STATE) //
         };
       };
     }
-    const obj: StringKeyObject = {
+    const messageTemplate: MessageTemplate = {
       name: {
         label: 'お名前',
         type: 'name',
@@ -52,18 +52,27 @@ export const reducer = reducerWithInitialState(INITIAL_STATE) //
           text: '電話番号を入力してください',
         },
       },
+      tel: {
+        label: '電話番号',
+        type: 'tel',
+        name: 'tel_input',
+        next: {
+          messageType: 'bot',
+          text: 'お問い合わせ内容を入力してください',
+        },
+      },
     };
     return [
       ...state,
       {
         messageType: 'reply',
-        type: obj[current].type,
+        type: messageTemplate[current].type,
         value: value,
-        name: obj[current].name,
-        label: obj[current].label,
+        name: messageTemplate[current].name,
+        label: messageTemplate[current].label,
         onClick: () => {},
       },
-      obj[current].next,
+      messageTemplate[current].next,
     ];
   });
 
