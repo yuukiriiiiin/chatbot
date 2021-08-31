@@ -48,7 +48,7 @@ export const Name: React.VFC<Props> = ({
 }) => {
   return (
     <div className={styles.root}>
-      <MessageArea messages={[]} />
+      <MessageArea messages={messages ?? []} />
       <div className={styles.root__form}>
         <FormArea progress={progress}>
           {current === 'name' && (

@@ -2,6 +2,7 @@ import React from 'react';
 import react, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeValue, selectInquiry, next } from '../../../redux/ui/inquiry';
+import { pushMessage, selectMessages } from '../../../redux/ui/messages';
 import { selectProgressState } from '../../../redux/ui/progressState';
 import { Name as Presentation } from './Name';
 
@@ -9,6 +10,7 @@ export const Container = () => {
   const dispatch = useDispatch();
 
   const { form, edited, validationErrors } = useSelector(selectInquiry);
+  const { messages } = useSelector(selectMessages);
   const { progress, current } = useSelector(selectProgressState);
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,12 +22,14 @@ export const Container = () => {
     (e: React.ChangeEvent<HTMLButtonElement>) => {
       e.preventDefault();
       dispatch(next());
+      dispatch(pushMessage({ current: current, value: form[current] }));
     },
-    [dispatch]
+    [dispatch, current, form]
   );
 
   return (
     <Presentation
+      messages={messages}
       form={form}
       edited={edited}
       validationErrors={validationErrors}
