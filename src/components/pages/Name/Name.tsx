@@ -1,5 +1,7 @@
 import react from 'react';
 import { Tuple } from '../../../redux/ui/progressState';
+import { RadioButton } from '../../atoms/RadioButton';
+import { Checked } from '../../atoms/RadioButton/__stories__/index.stories';
 import { Props as TextFieldProps } from '../../molecules/TextFieldRow';
 import { TextFieldRow } from '../../molecules/TextFieldRow';
 import { FormArea } from '../../organisms/FormArea/FormArea';
@@ -46,6 +48,10 @@ export const Name: React.VFC<Props> = ({
   edited,
   validationErrors,
 }) => {
+  const question = [
+    { label: 'NURO 光 G2', name: 'kodate', value: '0' },
+    { label: 'NURO 光 for マンション', name: 'manshon', value: '1' },
+  ];
   return (
     <div className={styles.root}>
       <MessageArea messages={messages ?? []} />
@@ -94,6 +100,35 @@ export const Name: React.VFC<Props> = ({
               placeholder={'電話番号を入力してください'}
               onClick={onClick}
             />
+          )}
+          {current === 'message' && (
+            <>
+              {question.map(q => {
+                return (
+                  <RadioButton
+                    label={q.label}
+                    name={q.name}
+                    value={q.value}
+                    // TODO: fix
+                    checked={false}
+                    // TODO: fix
+                    onChange={() => {}}
+                  />
+                );
+              })}
+              <TextFieldRow
+                type={'text'}
+                label={'その他お問い合わせ'}
+                value={form.message}
+                onChange={onChange}
+                name={'message'}
+                hasError={validationErrors.message.error}
+                edited={edited.message}
+                errorMessage={validationErrors.message.message}
+                placeholder={''}
+                onClick={onClick}
+              />
+            </>
           )}
         </FormArea>
       </div>

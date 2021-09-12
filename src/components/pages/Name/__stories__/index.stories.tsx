@@ -2,7 +2,7 @@ import { Name } from '../Name';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
-  title: 'organisms/Name',
+  title: 'pages/Name',
   component: Name,
 };
 

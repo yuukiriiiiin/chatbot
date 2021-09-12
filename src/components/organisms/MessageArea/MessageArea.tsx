@@ -1,6 +1,7 @@
 import react from 'react';
 import { BotMessage } from '../../molecules/BotMessage';
 import { ReplyMessage } from '../../molecules/ReplyMessage';
+import styles from './index.module.scss';
 
 type BotMessage = {
   messageType: 'bot';
@@ -24,14 +25,19 @@ type Props = {
 
 export const MessageArea: React.VFC<Props> = ({ messages }) => {
   return (
-    <div>
+    <div className={styles.root}>
       {messages.map(message =>
         message.messageType === 'bot' ? (
-          <div>
+          <div style={{ marginTop: '10px' }}>
             <BotMessage text={message.text} />
           </div>
         ) : (
-          <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <div
+            style={{
+              marginTop: '10px',
+              display: 'flex',
+              justifyContent: 'flex-end',
+            }}>
             <ReplyMessage
               type={message.type}
               value={message.value}

@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TextFieldRow } from '../../../molecules/TextFieldRow';
 
 export default {
-  title: 'organisms/Main',
+  title: 'pages/Main',
   component: Main,
 };
 

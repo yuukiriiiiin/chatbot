@@ -5,6 +5,7 @@
   input[type='radio'] + label {
     position: relative;
     padding-left: 30px;
+    color: #333;
 
     &::before {
       position: absolute;
