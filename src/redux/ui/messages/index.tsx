@@ -128,7 +128,6 @@ export const reducer = reducerWithInitialState(INITIAL_STATE) //
             value,
           })
         ),
-        messageTemplate[current].next,
       ];
     }
     return state;

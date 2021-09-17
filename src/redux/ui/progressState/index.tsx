@@ -3,7 +3,7 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { createSelector } from 'reselect';
 import { RootState } from '../../configureStore';
 
-export type Tuple = 'name' | 'email' | 'tel' | 'message';
+export type Tuple = 'name' | 'email' | 'tel' | 'message' | 'confirm';
 
 const actionCreator = actionCreatorFactory('progress state');
 
@@ -25,7 +25,7 @@ const INITIAL_STATE: ProgressState = {
 
 export const reducer = reducerWithInitialState(INITIAL_STATE) //
   .case(next, (state, _payload) => {
-    const currentValueTuple = ['name', 'email', 'tel', 'message'];
+    const currentValueTuple = ['name', 'email', 'tel', 'message', 'confirm'];
     const nextProgress = state.progress + 1;
     const nextCurrentValue = currentValueTuple[nextProgress] as Tuple;
     return {

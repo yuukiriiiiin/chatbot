@@ -1,5 +1,6 @@
 import react from 'react';
 import { Tuple } from '../../../redux/ui/progressState';
+import { Button } from '../../atoms/Button';
 import { TextFieldRow } from '../../molecules/TextFieldRow';
 import { FormArea } from '../../organisms/FormArea/FormArea';
 import { Message, MessageArea } from '../../organisms/MessageArea/MessageArea';
@@ -122,6 +123,9 @@ export const Main: React.VFC<Props> = ({
                 onClick={onClick}
               />
             </>
+          )}
+          {current === 'confirm' && (
+            <Button disabled={false}>確認画面へ進む</Button>
           )}
         </FormArea>
       </div>
