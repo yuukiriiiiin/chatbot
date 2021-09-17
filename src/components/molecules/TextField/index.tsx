@@ -2,7 +2,7 @@ import react from 'react';
 import { ErrorMessage } from '../../atoms/ErrorMessage';
 import { Input } from '../../atoms/Input';
 import { Label } from '../../atoms/Label';
-import { MessageBox } from '../../atoms/MessageBox';
+import { Textarea } from '../../atoms/Textarea';
 import styles from './index.module.scss';
 
 type Props = {
@@ -39,15 +39,26 @@ export const TextField: React.VFC<Props> = ({
           <Label label={label} name={name} />
         )}
       </div>
-      <Input
-        type={type}
-        value={value}
-        name={name}
-        placeholder={placeholder}
-        hasError={hasError}
-        onChange={onChange}
-        required={required}
-      />
+      {type === 'text' && (
+        <Input
+          type={type}
+          value={value}
+          name={name}
+          placeholder={placeholder}
+          hasError={hasError}
+          onChange={onChange}
+          required={required}
+        />
+      )}
+      {type === 'textarea' && (
+        <Textarea
+          value={value}
+          name={name}
+          placeholder={placeholder}
+          hasError={hasError}
+          onChange={onChange}
+        />
+      )}
     </div>
   );
 };

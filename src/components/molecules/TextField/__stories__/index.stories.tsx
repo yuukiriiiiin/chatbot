@@ -32,3 +32,14 @@ HasError.args = {
   hasError: true,
   errorMessage: 'この項目は必須です。',
 };
+
+export const Textarea = Template.bind({});
+Textarea.args = {
+  type: 'textarea',
+  value: '',
+  name: 'other',
+  label: 'その他',
+  placeholder: 'その他ご要望を入力してください',
+  required: false,
+  hasError: false,
+};

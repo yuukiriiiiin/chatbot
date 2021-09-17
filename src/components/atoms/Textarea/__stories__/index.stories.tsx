@@ -14,7 +14,6 @@ export const Default = Template.bind({});
 Default.args = {
   value: 'さんぷるぅ',
   name: 'message',
-  label: 'ご要望',
   placeholder: 'その他のご要望をご入力ください。',
   onChange: () => {},
 };
@@ -24,7 +23,6 @@ HasError.args = {
   value:
     'さんぷるぅさんぷるぅさんぷるぅさんぷるぅさんぷるぅさんぷるぅさんぷるぅさんぷるぅさんぷるぅさんぷるぅさんぷるぅさんぷるぅさんぷるぅさんぷるぅさんぷるぅ',
   name: 'message',
-  label: 'ご要望',
   placeholder: 'その他のご要望をご入力ください。',
   hasError: true,
   onChange: () => {},

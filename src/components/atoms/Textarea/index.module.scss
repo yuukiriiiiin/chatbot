@@ -20,7 +20,7 @@
     &[data-is-required] {
       background: #ffffe5;
     }
-    &[data-is-error] {
+    &[data-is-error='true'] {
       background: #fee6e6;
     }
   }
