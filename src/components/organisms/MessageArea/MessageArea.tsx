@@ -1,6 +1,6 @@
 import react from 'react';
 import { BotMessage } from '../../molecules/BotMessage';
-import { ReplyMessage } from '../../molecules/ReplyMessage';
+import { ReplyMessage, ReplyMessageProps } from '../../molecules/ReplyMessage';
 import styles from './index.module.scss';
 
 type BotMessage = {
@@ -10,10 +10,7 @@ type BotMessage = {
 
 type ReplyMessage = {
   messageType: 'reply';
-  type: string;
-  value: string;
-  name: string;
-  label: string;
+  reply: ReplyMessageProps[];
   onClick: () => void;
 };
 
@@ -38,13 +35,7 @@ export const MessageArea: React.VFC<Props> = ({ messages }) => {
               display: 'flex',
               justifyContent: 'flex-end',
             }}>
-            <ReplyMessage
-              type={message.type}
-              value={message.value}
-              name={message.name}
-              label={message.label}
-              onClick={message.onClick}
-            />
+            <ReplyMessage reply={message.reply} onClick={message.onClick} />
           </div>
         )
       )}

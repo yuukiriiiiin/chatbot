@@ -12,8 +12,9 @@ const Template: ComponentStory<typeof ReplyMessage> = ({ ...args }) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  type: 'text',
-  value: '桃子',
-  name: 'name',
-  label: 'お名前',
+  reply: [
+    { type: 'text', value: '桃子', name: 'name', label: 'お名前' },
+    { type: 'text', value: '桃子', name: 'name', label: 'お名前' },
+  ],
+  onClick: () => {},
 };

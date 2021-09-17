@@ -12,28 +12,42 @@ const Template: ComponentStory<typeof MessageArea> = ({ ...args }) => (
 
 const messages = [
   {
-    messageType: 'bot',
+    messageType: 'bot' as const,
     text: 'お名前を教えてください。',
   },
   {
-    messageType: 'reply',
-    type: 'text',
-    value: '桃子',
-    name: 'name',
-    label: 'お名前',
-    onclick: () => {},
+    messageType: 'reply' as const,
+    reply: [
+      {
+        type: 'text',
+        value: '桃子',
+        name: 'name',
+        label: 'お名前',
+      },
+    ],
+    onClick: () => {},
   },
   {
-    messageType: 'bot',
+    messageType: 'bot' as const,
     text: 'メールアドレスを教えてください。',
   },
   {
-    messageType: 'reply',
-    type: 'email',
-    value: 'y@gmail.com',
-    name: 'email',
-    label: 'メールアドレス',
-    onclick: () => {},
+    messageType: 'reply' as const,
+    reply: [
+      {
+        type: 'email',
+        value: 'y@gmail.com',
+        name: 'email',
+        label: 'メールアドレス',
+      },
+      {
+        type: 'email',
+        value: 'y@gmail.com',
+        name: 'email',
+        label: 'メールアドレス',
+      },
+    ],
+    onClick: () => {},
   },
 ];
 
