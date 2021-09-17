@@ -1,3 +1,3 @@
-import { Container } from '../components/pages/Name';
+import { Container } from '../components/pages/Main';
 
 export default Container;

@@ -66,10 +66,14 @@ export const reducer = reducerWithInitialState(INITIAL_STATE) //
       ...state,
       {
         messageType: 'reply',
-        type: messageTemplate[current].type,
-        value: value,
-        name: messageTemplate[current].name,
-        label: messageTemplate[current].label,
+        reply: [
+          {
+            type: messageTemplate[current].type,
+            value: value,
+            name: messageTemplate[current].name,
+            label: messageTemplate[current].label,
+          },
+        ],
         onClick: () => {},
       },
       messageTemplate[current].next,

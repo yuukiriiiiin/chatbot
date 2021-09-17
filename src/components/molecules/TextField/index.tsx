@@ -39,7 +39,15 @@ export const TextField: React.VFC<Props> = ({
           <Label label={label} name={name} />
         )}
       </div>
-      {type === 'text' && (
+      {type === 'textarea' ? (
+        <Textarea
+          value={value}
+          name={name}
+          placeholder={placeholder}
+          hasError={hasError}
+          onChange={onChange}
+        />
+      ) : (
         <Input
           type={type}
           value={value}
@@ -48,15 +56,6 @@ export const TextField: React.VFC<Props> = ({
           hasError={hasError}
           onChange={onChange}
           required={required}
-        />
-      )}
-      {type === 'textarea' && (
-        <Textarea
-          value={value}
-          name={name}
-          placeholder={placeholder}
-          hasError={hasError}
-          onChange={onChange}
         />
       )}
     </div>
