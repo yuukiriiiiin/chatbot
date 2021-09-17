@@ -3,6 +3,7 @@ import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { combine, required, regexp, minLength, maxLength } from 'favalid';
 import { createSelector } from 'reselect';
 import { RootState } from '../../configureStore';
+import { next } from '../progressState';
 
 const actionCreator = actionCreatorFactory('inquiry');
 
@@ -15,7 +16,6 @@ export const changeValue = actionCreator<ChangePayload>('change value');
 // export const changeName = actionCreator<ChangePayload>('change name');
 // export const changeEmail = actionCreator<ChangePayload>('change email');
 // export const changeTel = actionCreator<ChangePayload>('change tel');
-export const next = actionCreator('next question');
 
 const INITIAL_STATE = {
   form: {

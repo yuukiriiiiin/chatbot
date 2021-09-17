@@ -1,6 +1,7 @@
 import react, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeValue, selectInquiry, next } from '../../../redux/ui/inquiry';
+import { changeValue, selectInquiry } from '../../../redux/ui/inquiry';
+import { next } from '../../../redux/ui/progressState';
 import { pushMessage, selectMessages } from '../../../redux/ui/messages';
 import { selectProgressState } from '../../../redux/ui/progressState';
 import { Main as Presentation } from './Main';
@@ -20,8 +21,7 @@ export const Container = () => {
   const handleNext = useCallback(
     (e: React.ChangeEvent<HTMLButtonElement>) => {
       e.preventDefault();
-      dispatch(next());
-      dispatch(pushMessage({ current: current, value: form[current] }));
+      dispatch(next({ current: current, value: form[current] }));
     },
     [dispatch, current, form]
   );

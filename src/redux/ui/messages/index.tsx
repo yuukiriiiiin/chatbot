@@ -4,6 +4,7 @@ import { createSelector } from 'reselect';
 import { Message } from '../../../components/organisms/MessageArea/MessageArea';
 import { RootState } from '../../configureStore';
 import { Tuple } from '../progressState';
+import { next } from '../progressState';
 
 const actionCreator = actionCreatorFactory('inquiry');
 
@@ -21,7 +22,7 @@ const INITIAL_STATE: Message[] = [
 ];
 
 export const reducer = reducerWithInitialState(INITIAL_STATE) //
-  .case(pushMessage, (state, { current, value }) => {
+  .case(next, (state, { current, value }) => {
     interface MessageTemplate {
       [key: string]: {
         label: string;

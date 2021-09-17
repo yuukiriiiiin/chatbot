@@ -2,9 +2,16 @@ import actionCreatorFactory from 'typescript-fsa';
 import { reducerWithInitialState } from 'typescript-fsa-reducers';
 import { createSelector } from 'reselect';
 import { RootState } from '../../configureStore';
-import { next } from '../inquiry';
 
 export type Tuple = 'name' | 'email' | 'tel' | 'message';
+
+const actionCreator = actionCreatorFactory('progress state');
+
+type Value = {
+  current: string;
+  value: string;
+};
+export const next = actionCreator<Value>('next question');
 
 type ProgressState = {
   progress: number;
