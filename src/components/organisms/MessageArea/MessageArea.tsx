@@ -3,18 +3,18 @@ import { BotMessage } from '../../molecules/BotMessage';
 import { ReplyMessage, ReplyMessageProps } from '../../molecules/ReplyMessage';
 import styles from './index.module.scss';
 
-type BotMessage = {
+export type BotMessageType = {
   messageType: 'bot';
   text: string;
 };
 
-type ReplyMessage = {
+export type ReplyMessageType = {
   messageType: 'reply';
   reply: ReplyMessageProps[];
   onClick: () => void;
 };
 
-export type Message = BotMessage | ReplyMessage;
+export type Message = BotMessageType | ReplyMessageType;
 
 type Props = {
   messages: Message[];
